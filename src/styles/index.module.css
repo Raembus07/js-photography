@@ -1,14 +1,10 @@
 .entryContainer {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    color: #f2f2f2;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
+    justify-content: center;
+    position: relative;
 }
 
 .overlay {
@@ -17,105 +13,108 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, #d29b6b, #e5b387, #f7cda8);
-    background-size: 300% 300%;
-    animation: gradientMove 7s ease infinite;
-    z-index: 1;
-    filter: saturate(1.2);
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 20px;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: -1;
 }
 
 .title {
     font-size: 3rem;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
 }
 
 .highlight {
-    color: #ffeb3b;
-    background: linear-gradient(135deg, #fff176, #faa220);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
+    color: #CA9F70;
 }
 
 .subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
-    color: rgba(242, 242, 242, 0.85);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #bdbdbd;
 }
 
 .buttonContainer {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
 }
 
 .button {
-    cursor: pointer;
-    padding: 15px 30px;
+    padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    font-weight: bold;
-    border-radius: 30px;
+    text-transform: uppercase;
     text-decoration: none;
-    text-align: center;
-    letter-spacing: 0.5px;
+    border-radius: 50px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .primaryButton {
-    background: linear-gradient(90deg, #e5b387, #d29b6b);
-    color: #f2f2f2;
+    background-color: #CA9F70;
+    color: #121212;
     border: none;
 }
 
 .primaryButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(210, 155, 107, 0.5);
-    background: linear-gradient(90deg, #d29b6b, #e5b387);
+    background-color: #a78258;
 }
 
 .secondaryButton {
-    background: transparent;
-    color: #f2f2f2;
-    border: 2px solid #f2f2f2;
+    background-color: transparent;
+    color: #CA9F70;
+    border: 1px solid #CA9F70;
 }
 
 .secondaryButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(242, 242, 242, 0.5);
-    background: rgba(255, 255, 255, 0.2);
+    color: #a78258;
+    border-color: #a78258;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0 0 40px;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.gridItem img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gridItem img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gridItem img {
+        max-width: 100%;
+    }
 }

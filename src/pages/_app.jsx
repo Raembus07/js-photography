@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer"
-import "./_app.css";
+import "@/styles/global.css"
 
 export default function App({Component, pageProps}) {
 
@@ -10,7 +10,6 @@ export default function App({Component, pageProps}) {
             <main className="page">
                 {<Component {...pageProps} />}
             </main>
-            <Footer></Footer>
         </>
     );
 }

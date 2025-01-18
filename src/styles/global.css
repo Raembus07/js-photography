@@ -1,0 +1,57 @@
+/* styles/globals.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: #e1e1e6;
+}
+
+body {
+    background: radial-gradient(circle at center, #1a1a1a, #121212 70%),
+    url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+    background-size: cover;
+    color: #e1e1e6;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #CA9F70;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #a78258;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #e1e1e6;
+}
+
+button {
+    background-color: #CA9F70;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a78258;
+}
