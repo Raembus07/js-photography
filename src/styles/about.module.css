@@ -1,0 +1,94 @@
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.highlight {
+    color: #0070f3;
+    font-weight: bold;
+}
+
+
+.contactLink {
+    color: #CA9F70;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+}
+
+.contactLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #CA9F70;
+    transition: width 0.3s ease-in-out;
+}
+
+.contactLink:hover {
+    color: #8e6c50;
+}
+
+.contactLink:hover::after {
+    width: 100%;
+}
+
+.aboutSection {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.aboutText {
+    flex: 1 1 50%;
+}
+
+.aboutImage {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.image {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.passionSection {
+    border-radius: 10px;
+
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.passionContent {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.contactSection {
+    text-align: center;
+    border-radius: 10px;
+}
