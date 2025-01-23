@@ -7,7 +7,7 @@ export default function Header() {
                 <a href="/" className={styles.navLink}>home</a>
                 <a href="/about" className={styles.navLink}>about me</a>
                 <a href="/projects" className={styles.navLink}>recent projects</a>
-                <a href="/calendar" className={styles.navLink}>calendar</a>
+                {/* <a href="/calendar" className={styles.navLink}>calendar</a> */}
                 <a href="/price" className={styles.navLink}>price</a>
                 <a href="/contact" className={styles.navLink}>contact</a>
             </nav>

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import "@/styles/calendar.module.css";
+import styles from "@/styles/calendar.module.css";
 
 export default function Create() {
     const router = useRouter();

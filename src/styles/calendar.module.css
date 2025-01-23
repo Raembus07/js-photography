@@ -1,92 +1,64 @@
 .calendarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .calendarTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
     text-align: center;
+}
+
+.viewSelector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-.calendarDay {
+.viewSelector label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.viewSelectorDropdown {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
     cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.viewSelectorDropdown:hover {
+    border-color: #888;
+}
+
+.viewSelectorDropdown:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
 .event {
-    background-color: #3788d8 !important;
-    color: white !important;
-}
-
-.fc .fc-daygrid-day {
-    cursor: pointer;
-}
-
-.fc-event {
-    background-color: #3788d8 !important;
-    color: white !important;
-}
-
-.create-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.create-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.create-date {
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-label {
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.form-input input,
-.form-input textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-input input:focus,
-.form-input textarea:focus {
-    outline: none;
-    border-color: #3788d8;
-}
-
-.form-actions {
-    text-align: center;
-}
-
-.submit-button {
-    padding: 10px 20px;
-    background-color: #3788d8;
-    color: white;
+    background-color: #007bff;
+    color: #fff !important;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: #286bb5;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 12px;
+    text-align: center;
 }
