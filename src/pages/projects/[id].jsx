@@ -26,7 +26,7 @@ export default function ProjectDetail() {
             }
         };
 
-        fetchProject().then(r => 'fetching successfully');
+        fetchProject().then(r => console.log('fetching successfully'));
     }, [id]);
 
     if (!project) {
