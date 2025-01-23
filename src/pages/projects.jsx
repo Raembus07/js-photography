@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 import styles from "@/styles/project.module.css";
 
 export default function ProjectsOverview() {
@@ -7,27 +7,30 @@ export default function ProjectsOverview() {
     const router = useRouter();
 
     useEffect(() => {
-        fetch("/projects.json")
-            .then((response) => {
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch("/projects.json");
                 if (!response.ok) {
                     throw new Error(`HTTP status ${response.status}`);
                 }
-                return response.json();
-            })
-            .then((data) => setProjects(data))
-            .catch((error) =>
-                console.error("Fehler beim Laden der JSON-Daten:", error)
-            );
+                const data = await response.json();
+                setProjects(data);
+            } catch (error) {
+                console.error("Error loading project data:", error);
+            }
+        };
+
+        fetchProjects().then(r => console.log('fetching successfully'));
     }, []);
 
     const handleProjectClick = (projectId) => {
-        router.push(`/projects/${projectId}`);
+        router.push(`/projects/${projectId}`).then(r => console.log('pushed to /projects successfully'));
     };
 
     return (
         <div className={styles.container}>
             {projects.length === 0 ? (
-                <p>Lade Projekte...</p>
+                <p>Loading projects...</p>
             ) : (
                 <div className={styles.grid}>
                     {projects.map((project) => (
