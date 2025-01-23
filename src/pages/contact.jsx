@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {useRouter} from 'next/router';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import styles from '@/styles/contact.module.css';
 
 const ContactPage = () => {
     const [topics, setTopics] = useState([]);
-    const [packages, setPackages] = useState([])
+    const [packages, setPackages] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -18,6 +19,7 @@ const ContactPage = () => {
     const router = useRouter();
 
     useEffect(() => {
+        // Lade Dropdown-Werte für Topics und Packages
         fetch('/contactTopics.json')
             .then((response) => response.json())
             .then((data) => setTopics(data))
@@ -28,16 +30,22 @@ const ContactPage = () => {
             .then((data) => setPackages(data))
             .catch((err) => console.error(err));
 
+        // URL-Parameter auslesen und in den Zustand übernehmen
+        const { topic, package: packageParam, subject } = router.query;
 
-        const querySubject = router.query.subject;
-        if (querySubject) {
-            setFormData((prev) => ({...prev, subject: querySubject}));
+        if (topic || packageParam || subject) {
+            setFormData((prev) => ({
+                ...prev,
+                topic: topic || prev.topic,
+                package: packageParam || prev.package,
+                subject: subject || prev.subject,
+            }));
         }
     }, [router.query]);
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]: value});
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (e) => {
@@ -45,13 +53,13 @@ const ContactPage = () => {
 
         const response = await fetch('/api/send-email', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         });
 
         if (response.ok) {
             alert('Thank you for your message! I will get back to you soon.');
-            setFormData({name: '', email: '', subject: '', topic: '', message: ''});
+            setFormData({ name: '', email: '', subject: '', topic: '', package: '', message: '' });
         } else {
             alert('There was a problem. Please try again.');
         }
@@ -111,7 +119,8 @@ const ContactPage = () => {
                         className={styles.select}
                         value={formData.topic}
                         onChange={handleChange}
-                        required>
+                        required
+                    >
                         <option value="" disabled>
                             Select a topic
                         </option>
@@ -123,6 +132,7 @@ const ContactPage = () => {
                     </select>
                 </div>
 
+                {/* Nur anzeigen, wenn das Topic "book package" ist */}
                 {formData.topic === "book package" && (
                     <div className={styles.formGroup}>
                         <label htmlFor="package" className={styles.label}>Package:</label>
@@ -132,7 +142,8 @@ const ContactPage = () => {
                             className={styles.select}
                             value={formData.package}
                             onChange={handleChange}
-                            required>
+                            required
+                        >
                             <option value="" disabled>
                                 Select a package
                             </option>

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import styles from "@/styles/price.module.css";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import {useRouter} from "next/router";
 
 export default function Price() {
     const router = useRouter();
     const [priceData, setPriceData] = useState([]);
-
 
     useEffect(() => {
         const fetchPrices = async () => {
@@ -19,8 +17,22 @@ export default function Price() {
             }
         };
 
-        fetchPrices().then(r => console.log("fetching successful"));
+        fetchPrices().then(() => console.log("fetching successful"));
     }, []);
+
+    const handlePackageClick = (packageTitle) => {
+        router.push({
+            pathname: "/contact",
+            query: {topic: "book package", package: packageTitle},
+        }).then(r => `/contact with parameter book package and ${packageTitle} called`);
+    };
+
+    const handleCustomPackageClick = () => {
+        router.push({
+            pathname: "/contact",
+            query: {topic: "custom package"},
+        }).then(r => console.log('/contact with parameter custom package called'));
+    }
 
     return (
         <div className={styles.priceContainer}>
@@ -54,12 +66,24 @@ export default function Price() {
                         <p className={styles.bigDescription}>
                             {item.bigDescription}
                         </p>
+
+                        <button
+                            className={styles.packageButton}
+                            onClick={() => handlePackageClick(item.title)}
+                        >
+                            Book This Package
+                        </button>
                     </div>
                 ))}
             </div>
 
             <p className={styles.footerNote}>
-                <Link href='/contact?subject=Custom%20Offers' passHref>contact us for custom offers!</Link>
+                <span
+                    className={styles.link}
+                    onClick={handleCustomPackageClick}
+                >
+                    contact us for custom offers!
+                </span>
             </p>
         </div>
     );

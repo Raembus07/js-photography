@@ -17,10 +17,14 @@
   },
   {
     "id": "5",
-    "title": "support"
+    "title": "custom package"
   },
   {
     "id": "6",
+    "title": "support"
+  },
+  {
+    "id": "7",
     "title": "other"
   }
 ]
