@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import styles from "@/styles/price.module.css";
 import {useRouter} from "next/router";
+import styles from "@/styles/price.module.css";
 
 export default function Price() {
-    const router = useRouter();
     const [priceData, setPriceData] = useState([]);
+    const router = useRouter();
 
     useEffect(() => {
         const fetchPrices = async () => {
@@ -13,53 +13,59 @@ export default function Price() {
                 const data = await response.json();
                 setPriceData(data);
             } catch (error) {
-                console.error("error loading price data:", error);
+                console.error("Error loading price data:", error);
             }
         };
 
-        fetchPrices().then(() => console.log("fetching successful"));
+        fetchPrices().then(r => console.log('fetching successfully'));
     }, []);
 
     const handlePackageClick = (packageTitle) => {
         router.push({
             pathname: "/contact",
-            query: {subject: `book ${packageTitle}`, topic: "book package", package: packageTitle},
-        }).then(r => `/contact with parameter book package and ${packageTitle} called`);
+            query: {
+                subject: `book ${packageTitle}`,
+                topic: "book package",
+                package: packageTitle,
+            },
+        }).then(r => console.log('sent to /contact successfully'));
     };
 
     const handleCustomPackageClick = () => {
         router.push({
             pathname: "/contact",
-            query: {subject: "book new package", topic: "custom package"},
-        }).then(r => console.log('/contact with parameter custom package called'));
-    }
+            query: {
+                subject: "book new package",
+                topic: "custom package",
+            },
+        }).then(r => console.log('sent to /contact successfully'));
+    };
 
     return (
         <div className={styles.priceContainer}>
-            <h1 className={styles.title}>price overview</h1>
+            <h1 className={styles.title}>Price Overview</h1>
             <p className={styles.description}>
-                find our pricing for services below.
+                Find our pricing for services below.
             </p>
 
             <div className={styles.priceList}>
-                {priceData.map((item, index) => (
-                    <div key={index} className={styles.priceItem}>
+                {priceData.map((item) => (
+                    <div key={item.title} className={styles.priceItem}>
                         <img
                             src={item.image}
                             alt={item.title}
                             className={styles.packageImage}
                         />
-
                         <h2 className={styles.packageTitle}>{item.title}</h2>
                         <p className={styles.packageDesc}>{item.description}</p>
                         <p className={styles.price}>{item.price}</p>
 
                         <div className={styles.durationContainer}>
                             <p className={styles.duration}>
-                                <strong>shooting duration:</strong> {item.shootingDuration}
+                                <strong>Shooting Duration:</strong> {item.shootingDuration}
                             </p>
                             <p className={styles.duration}>
-                                <strong>supply duration:</strong> {item.supplyDuration}
+                                <strong>Supply Duration:</strong> {item.supplyDuration}
                             </p>
                         </div>
 
@@ -82,7 +88,7 @@ export default function Price() {
                     className={styles.link}
                     onClick={handleCustomPackageClick}
                 >
-                    contact us for custom offers!
+                    Contact us for custom offers!
                 </span>
             </p>
         </div>
