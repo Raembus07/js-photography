@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/price.module.css";
 
 export default function Price() {
@@ -10,6 +10,9 @@ export default function Price() {
         const fetchPrices = async () => {
             try {
                 const response = await fetch("/priceData.json");
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
                 setPriceData(data);
             } catch (error) {
@@ -17,7 +20,7 @@ export default function Price() {
             }
         };
 
-        fetchPrices().then(r => console.log('fetching successfully'));
+        fetchPrices().then(r => console.log("fetching successfully"));
     }, []);
 
     const handlePackageClick = (packageTitle) => {
@@ -28,17 +31,17 @@ export default function Price() {
                 topic: "book package",
                 package: packageTitle,
             },
-        }).then(r => console.log('sent to /contact successfully'));
+        });
     };
 
     const handleCustomPackageClick = () => {
         router.push({
             pathname: "/contact",
             query: {
-                subject: "book new package",
+                subject: "book custom package",
                 topic: "custom package",
             },
-        }).then(r => console.log('sent to /contact successfully'));
+        });
     };
 
     return (
@@ -50,36 +53,11 @@ export default function Price() {
 
             <div className={styles.priceList}>
                 {priceData.map((item) => (
-                    <div key={item.title} className={styles.priceItem}>
-                        <img
-                            src={item.image}
-                            alt={item.title}
-                            className={styles.packageImage}
-                        />
-                        <h2 className={styles.packageTitle}>{item.title}</h2>
-                        <p className={styles.packageDesc}>{item.description}</p>
-                        <p className={styles.price}>{item.price}</p>
-
-                        <div className={styles.durationContainer}>
-                            <p className={styles.duration}>
-                                <strong>Shooting Duration:</strong> {item.shootingDuration}
-                            </p>
-                            <p className={styles.duration}>
-                                <strong>Supply Duration:</strong> {item.supplyDuration}
-                            </p>
-                        </div>
-
-                        <p className={styles.bigDescription}>
-                            {item.bigDescription}
-                        </p>
-
-                        <button
-                            className={styles.packageButton}
-                            onClick={() => handlePackageClick(item.title)}
-                        >
-                            Book This Package
-                        </button>
-                    </div>
+                    <PriceItem
+                        key={item.title}
+                        data={item}
+                        onPackageClick={() => handlePackageClick(item.title)}
+                    />
                 ))}
             </div>
 
@@ -94,3 +72,35 @@ export default function Price() {
         </div>
     );
 }
+
+const PriceItem = ({ data, onPackageClick }) => {
+    return (
+        <div className={styles.priceItem}>
+            <img
+                src={data.image}
+                alt={data.title}
+                className={styles.packageImage}
+            />
+            <h2 className={styles.packageTitle}>{data.title}</h2>
+            <p className={styles.packageDesc}>{data.description}</p>
+            <p className={styles.price}>{data.price}</p>
+
+            <div className={styles.durationContainer}>
+                <p className={styles.duration}>
+                    <strong>Shooting Duration:</strong> {data.shootingDuration}
+                </p>
+                <p className={styles.duration}>
+                    <strong>Supply Duration:</strong> {data.supplyDuration}
+                </p>
+            </div>
+
+            {data.bigDescription && (
+                <p className={styles.bigDescription}>{data.bigDescription}</p>
+            )}
+
+            <button className={styles.packageButton} onClick={onPackageClick}>
+                Book This Package
+            </button>
+        </div>
+    );
+};
