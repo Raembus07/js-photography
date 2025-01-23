@@ -1,0 +1,90 @@
+.priceContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+}
+
+.priceList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.priceItem {
+    max-width: 370px;
+    flex: 1 1 calc(33.333% - 20px);
+    border: 2px solid #CA9F70;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.priceItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.packageImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.packageTitle {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: lowercase; /* all lowercase */
+}
+
+.packageDesc {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.durationContainer {
+    margin: 15px 0;
+}
+
+.duration {
+    font-size: 16px;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.bigDescription {
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.footerNote {
+    font-size: 18px;
+    margin-top: 40px;
+    text-transform: lowercase;
+}

@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/styles/projectdetail.module.css";
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
     const router = useRouter();
-    const {id} = router.query;
+    const { id } = router.query;
 
     useEffect(() => {
-        if (!id) {
-            return;
-        }
+        if (!id) return;
 
         fetch("/projects.json")
             .then((response) => {
@@ -21,13 +19,13 @@ export default function ProjectDetail() {
             })
             .then((projects) => {
                 const selectedProject = projects.find(
-                    (project) => project.id === parseInt(id, 10)
+                    (project) => String(project.id) === id
                 );
                 setProject(selectedProject);
             })
-            .catch((error) =>
-                console.error("error while loading the project data:", error)
-            );
+            .catch((error) => {
+                console.error("Error while loading the project data:", error);
+            });
     }, [id]);
 
     if (!project) {
@@ -36,26 +34,52 @@ export default function ProjectDetail() {
 
     return (
         <div className={styles.container}>
-            <h1>{project.title}</h1>
-            <img
-                src={project.mainImage}
-                alt={project.title}
-                className={styles.image}
-            />
-            <p className={styles.description}>{project.longDescription}</p>
-            <div className={styles.gallery}>
-                {project.gallery.map((image, index) => (
+            <div className={styles.content}>
+                <h1 className={styles.title}>{project.title}</h1>
+                <div className={styles.coverImageContainer}>
                     <img
-                        key={index}
-                        src={image}
-                        alt={`Bild ${index + 1}`}
-                        className={styles.galleryImage}
+                        src={project.mainImage}
+                        alt={project.title}
+                        className={styles.coverImage}
                     />
-                ))}
+                </div>
+                {project.longDescription && (
+                    <p className={styles.description}>{project.longDescription}</p>
+                )}
+                {project.gallery && project.gallery.length > 0 && (
+                    <div className={styles.gallery}>
+                        {project.gallery.map((image, index) => (
+                            <img
+                                key={index}
+                                src={image}
+                                alt={`Project Image ${index + 1}`}
+                                className={styles.galleryImage}
+                            />
+                        ))}
+                    </div>
+                )}
+                {project.client || project.date || project.category ? (
+                    <div className={styles.projectDetails}>
+                        <ul>
+                            {project.client && (
+                                <li>
+                                    <strong>client:</strong> {project.client}
+                                </li>
+                            )}
+                            {project.date && (
+                                <li>
+                                    <strong>date:</strong> {project.date}
+                                </li>
+                            )}
+                            {project.category && (
+                                <li>
+                                    <strong>category:</strong> {project.category}
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                ) : null}
             </div>
-            <button onClick={() => router.back()} className={styles.button}>
-                back
-            </button>
         </div>
     );
 }

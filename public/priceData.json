@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "basic package",
+    "description": "Perfect for beginners.",
+    "price": "CHF 99",
+    "shootingDuration": "1 hour",
+    "supplyDuration": "5 business days",
+    "bigDescription": "Ideal for those starting out.",
+    "image": "/images/price-placeholder.jpg"
+  },
+  {
+    "id": 2,
+    "title": "standard package",
+    "description": "Great value for most people.",
+    "price": "CHF 199",
+    "shootingDuration": "2 hours",
+    "supplyDuration": "7 business days",
+    "bigDescription": "Recommended for intermediate users.",
+    "image": "/images/price-placeholder.jpg"
+  },
+  {
+    "id": 3,
+    "title": "premium package",
+    "description": "For high-demand professionals.",
+    "price": "CHF 399",
+    "shootingDuration": "1 day",
+    "supplyDuration": "14 business days",
+    "bigDescription": "Best for professional-level requirements.",
+    "image": "/images/price-placeholder.jpg"
+  },
+  {
+    "id": 4,
+    "title": "ultimate package",
+    "description": "The complete package for ultimate results.",
+    "price": "CHF 599",
+    "shootingDuration": "3 days",
+    "supplyDuration": "30 days",
+    "bigDescription": "For those who want the absolute best quality and service.",
+    "image": "/images/price-placeholder.jpg"
+  }
+]

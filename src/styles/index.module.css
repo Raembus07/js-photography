@@ -63,7 +63,7 @@
 .secondaryButton {
     background-color: transparent;
     color: #CA9F70;
-    border: 1px solid #CA9F70;
+    border: 2px solid #CA9F70;
 }
 
 .secondaryButton:hover {
