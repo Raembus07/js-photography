@@ -1,35 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'; // Importiere den Router
+import React, {useState, useEffect} from 'react';
+import {useRouter} from 'next/router';
 import styles from '@/styles/contact.module.css';
 
 const ContactPage = () => {
     const [topics, setTopics] = useState([]);
+    const [packages, setPackages] = useState([])
+    const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         subject: '',
         topic: '',
+        package: '',
         message: ''
     });
 
     const router = useRouter();
 
     useEffect(() => {
-        // Lade Dropdown-Werte
         fetch('/contactTopics.json')
             .then((response) => response.json())
             .then((data) => setTopics(data))
             .catch((err) => console.error(err));
 
+        fetch('/priceData.json')
+            .then((response) => response.json())
+            .then((data) => setPackages(data))
+            .catch((err) => console.error(err));
+
+
         const querySubject = router.query.subject;
         if (querySubject) {
-            setFormData((prev) => ({ ...prev, subject: querySubject }));
+            setFormData((prev) => ({...prev, subject: querySubject}));
         }
     }, [router.query]);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const {name, value} = e.target;
+        setFormData({...formData, [name]: value});
     };
 
     const handleSubmit = async (e) => {
@@ -37,13 +45,13 @@ const ContactPage = () => {
 
         const response = await fetch('/api/send-email', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(formData),
         });
 
         if (response.ok) {
             alert('Thank you for your message! I will get back to you soon.');
-            setFormData({ name: '', email: '', subject: '', topic: '', message: '' });
+            setFormData({name: '', email: '', subject: '', topic: '', message: ''});
         } else {
             alert('There was a problem. Please try again.');
         }
@@ -103,8 +111,7 @@ const ContactPage = () => {
                         className={styles.select}
                         value={formData.topic}
                         onChange={handleChange}
-                        required
-                    >
+                        required>
                         <option value="" disabled>
                             Select a topic
                         </option>
@@ -115,6 +122,28 @@ const ContactPage = () => {
                         ))}
                     </select>
                 </div>
+
+                {formData.topic === "book package" && (
+                    <div className={styles.formGroup}>
+                        <label htmlFor="package" className={styles.label}>Package:</label>
+                        <select
+                            id="package"
+                            name="package"
+                            className={styles.select}
+                            value={formData.package}
+                            onChange={handleChange}
+                            required>
+                            <option value="" disabled>
+                                Select a package
+                            </option>
+                            {packages.map((pkg) => (
+                                <option key={pkg.id} value={pkg.title}>
+                                    {pkg.title}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                )}
 
                 <div className={styles.formGroup}>
                     <label htmlFor="message" className={styles.label}>Message:</label>
