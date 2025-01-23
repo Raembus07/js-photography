@@ -23,14 +23,14 @@ export default function Price() {
     const handlePackageClick = (packageTitle) => {
         router.push({
             pathname: "/contact",
-            query: {topic: "book package", package: packageTitle},
+            query: {subject: `book ${packageTitle}`, topic: "book package", package: packageTitle},
         }).then(r => `/contact with parameter book package and ${packageTitle} called`);
     };
 
     const handleCustomPackageClick = () => {
         router.push({
             pathname: "/contact",
-            query: {topic: "custom package"},
+            query: {subject: "book new package", topic: "custom package"},
         }).then(r => console.log('/contact with parameter custom package called'));
     }
 

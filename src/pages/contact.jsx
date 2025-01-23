@@ -5,7 +5,6 @@ import styles from '@/styles/contact.module.css';
 const ContactPage = () => {
     const [topics, setTopics] = useState([]);
     const [packages, setPackages] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -19,7 +18,6 @@ const ContactPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        // Lade Dropdown-Werte für Topics und Packages
         fetch('/contactTopics.json')
             .then((response) => response.json())
             .then((data) => setTopics(data))
@@ -30,7 +28,6 @@ const ContactPage = () => {
             .then((data) => setPackages(data))
             .catch((err) => console.error(err));
 
-        // URL-Parameter auslesen und in den Zustand übernehmen
         const { topic, package: packageParam, subject } = router.query;
 
         if (topic || packageParam || subject) {
@@ -60,6 +57,7 @@ const ContactPage = () => {
         if (response.ok) {
             alert('Thank you for your message! I will get back to you soon.');
             setFormData({ name: '', email: '', subject: '', topic: '', package: '', message: '' });
+            await router.push('/')
         } else {
             alert('There was a problem. Please try again.');
         }
