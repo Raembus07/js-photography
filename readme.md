@@ -30,6 +30,7 @@ Ensure you have [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com/) 
 npm init -y
 npm install react react-dom next
 npm install -g npm@9.8.1
+npm install react-intl
 ```
 
 ### **3. Run the development server**
