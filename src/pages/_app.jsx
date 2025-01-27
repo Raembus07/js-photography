@@ -1,14 +1,27 @@
+import React from "react";
 import Header from "@/components/Header";
-import "@/styles/global.css"
+import "@/styles/global.css";
+import { IntlProvider } from "react-intl";
+import enMessages from "@/locales/en.json";
+import deMessages from "@/locales/de.json";
+import frMessages from "@/locales/fr-CH.json";
 
-export default function App({Component, pageProps}) {
+const messages = {
+  en: enMessages,
+  de: deMessages,
+  fr: frMessages,
+};
 
-    return (
-        <>
-            <Header title={"Blog"}></Header>
-            <main className="page">
-                {<Component {...pageProps} />}
-            </main>
-        </>
-    );
+export default function App({ Component, pageProps, router }) {
+  const { locale } = router;
+  const currentMessages = messages[locale] || messages.en;
+
+  return (
+    <IntlProvider locale={locale} messages={currentMessages}>
+      <Header title={"Blog"} />
+      <main className="page">
+        <Component {...pageProps} />
+      </main>
+    </IntlProvider>
+  );
 }

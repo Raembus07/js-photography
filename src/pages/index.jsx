@@ -1,50 +1,55 @@
-// pages/index.js
 import Head from "next/head";
+import {getIntl, RawIntlProvider} from "@/i18n";
 import styles from "@/styles/index.module.css";
 
-export default function Home() {
+export default function Home({locale}) {
+    const intl = getIntl(locale);
+
     return (
-        <>
+        <RawIntlProvider value={intl}>
             <Head>
-                <title>Welcome | My Portfolio</title>
+                <title>{intl.formatMessage({id: 'title'})}</title>
                 <meta
                     name="description"
-                    content="Be inspired. Welcome to my portfolio!"
+                    content={intl.formatMessage({id: 'description'})}
                 />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </Head>
 
             <main className={styles.entryContainer}>
                 <div className={styles.overlay}></div>
                 <h1 className={styles.title}>
-                    Welcome, I am <span className={styles.highlight}>Josia Schweizer</span>
+                    {intl.formatMessage({id: 'welcome'})}
                 </h1>
                 <p className={styles.subtitle}>
-                    Creator of <strong>unique works</strong>, photographer & videographer
-                    by passion.
+                    {intl.formatMessage({id: 'subtitle'})} //todo: make unique works bold if possible
                 </p>
             </main>
 
             <section className={styles.gallery}>
-                <h2 className={styles.sectionTitle}>Portfolio</h2>
+                <h2 className={styles.sectionTitle}>{intl.formatMessage({id: 'portfolio'})}</h2>
 
                 <div className={styles.grid}>
                     <div className={styles.gridItem}>
                         <img
                             src="/images/index-photo1.jpg"
-                            alt="Image 1"
+                            alt={intl.formatMessage({id: 'image1Alt'})}
                             className={styles.photo}
                         />
                     </div>
                     <div className={styles.gridItem}>
                         <img
                             src="/images/index-photo2.jpg"
-                            alt="Image 2"
+                            alt={intl.formatMessage({id: 'image2Alt'})}
                             className={styles.photo}
                         />
                     </div>
                 </div>
             </section>
-        </>
+        </RawIntlProvider>
     );
 }
+
+Home.getInitialProps = async ({locale}) => {
+    return {locale};
+};

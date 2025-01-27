@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
+import {FormattedMessage} from "react-intl";
 import styles from "@/styles/about.module.css";
 import Link from "next/link";
 
@@ -26,14 +27,14 @@ const AboutPage = () => {
         return <p>Loading...</p>;
     }
 
-    const { about, passion, contact } = data;
-
     return (
         <main className={styles.aboutContainer}>
             <section className={styles.aboutSection}>
                 <div className={styles.aboutText}>
-                    <h1 className={styles.title}>{about.title}</h1>
-                    {about.description.map((paragraph, index) => (
+                    <h1 className={styles.title}>
+                        <FormattedMessage id="aboutTitle"/>
+                    </h1>
+                    {data.about.description.map((paragraph, index) => (
                         <p key={index} className={styles.description}>
                             {paragraph.includes("Josia Schweizer") ? (
                                 <>
@@ -51,7 +52,7 @@ const AboutPage = () => {
                 </div>
                 <div className={styles.aboutImage}>
                     <img
-                        src={about.image}
+                        src={data.about.image}
                         alt="About Me"
                         className={styles.image}
                     />
@@ -60,8 +61,10 @@ const AboutPage = () => {
 
             <section className={styles.passionSection}>
                 <div className={styles.passionContent}>
-                    <h2 className={styles.title}>{passion.title}</h2>
-                    {passion.description.map((paragraph, index) => (
+                    <h2 className={styles.title}>
+                        <FormattedMessage id="passionTitle"/>
+                    </h2>
+                    {data.passion.description.map((paragraph, index) => (
                         <p key={index} className={styles.description}>
                             {paragraph}
                         </p>
@@ -70,8 +73,12 @@ const AboutPage = () => {
             </section>
 
             <section className={styles.contactSection}>
-                <h2 className={styles.title}>{contact.title}</h2>
-                <p className={styles.description}>{contact.description}</p>
+                <h2 className={styles.title}>
+                    <FormattedMessage id="contactTitle"/>
+                </h2>
+                <p className={styles.description}>
+                    <FormattedMessage id="contactDescription"/>
+                </p>
             </section>
         </main>
     );

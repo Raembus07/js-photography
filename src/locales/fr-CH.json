@@ -1,0 +1,16 @@
+{
+  "title": "Bienvenue | Mon Portfolio",
+  "description": "Soyez inspiré. Bienvenue dans mon portfolio!",
+  "welcome": "Bienvenue, je suis Josia Schweizer",
+  "subtitle": "Créateur de {boldText}, photographe & vidéaste par passion.",
+  "portfolio": "Portfolio",
+  "image1Alt": "Image 1",
+  "image2Alt": "Image 2",
+
+
+  "priceTitle": "Aperçu des prix",
+  "priceDescription": "Trouvez nos tarifs pour les services ci-dessous.",
+  "shootingDuration": "Durée du shooting: {boldText}",
+  "supplyDuration": "Durée de livraison: {boldText}",
+  "footerNote": "Contactez-nous pour des offres personnalisées!"
+}

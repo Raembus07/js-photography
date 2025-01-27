@@ -1,0 +1,49 @@
+{
+  "title": "Welcome | My Portfolio",
+  "description": "Be inspired. Welcome to my portfolio!",
+  "welcome": "Welcome, I am Josia Schweizer",
+  "subtitle": "Creator of unique works, photographer & videographer by passion.",
+  "portfolio": "Portfolio",
+  "image1Alt": "Image 1",
+  "image2Alt": "Image 2",
+
+  "priceTitle": "Price Overview",
+  "priceDescription": "Find our pricing for services below.",
+  "shootingDuration": "Shooting Duration: {boldText}",
+  "supplyDuration": "Supply Duration: ",
+  "footerNote": "Contact us for custom offers!",
+
+  "bookPackageSubject": "Booking Package: ",
+  "bookPackageTopic": "Package Booking Inquiry",
+  "bookCustomPackageSubject": "Custom Package Booking",
+  "bookCustomPackageTopic": "Custom Package Inquiry",
+  "bookThisPackage": "Book This Package",
+
+  "aboutTitle": "About Me",
+  "aboutDescription": [
+    "Hello, I am Josia Schweizer, a passionate photographer and videographer.",
+    "I have been working in this field for over 10 years."
+  ],
+  "passionTitle": "My Passion",
+  "passionDescription": [
+    "Photography and videography are not just my profession, but my passion.",
+    "I love capturing moments and creating unique works."
+  ],
+  "contactTitle": "Contact Me",
+  "contactDescription": "Feel free to reach out to me for any inquiries or collaborations.",
+
+  "priceItemTitle": "Package Title: {title}",
+  "priceItemDescription": "Description: {description}",
+  "priceItemPrice": "Price: {price}",
+  "priceItemBigDescription": "Big Description: {bigDescription}",
+
+  "nameLabel": "Name:",
+  "emailLabel": "Email:",
+  "subjectLabel": "Subject:",
+  "topicLabel": "Topic:",
+  "selectTopic": "Select a topic",
+  "packageLabel": "Package:",
+  "selectPackage": "Select a package",
+  "messageLabel": "Message:",
+  "sendMessage": "Send Message"
+}
