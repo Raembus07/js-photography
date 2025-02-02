@@ -22,7 +22,9 @@ export default function Home({locale}) {
                     {intl.formatMessage({id: 'welcome'})}
                 </h1>
                 <p className={styles.subtitle}>
-                    {intl.formatMessage({id: 'subtitle'})} //todo: make unique works bold if possible
+                    {intl.formatMessage({id: 'subtitle'}, {
+                        b: (chunks) => <b style={{ fontWeight: 'bold' }}>{chunks}</b>,
+                    })}
                 </p>
             </main>
 

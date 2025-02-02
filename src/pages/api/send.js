@@ -11,19 +11,22 @@ export default async function handler(req, res) {
         }
 
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: 'smtp.resend.com',
+            secure: true,
+            port: 465,
             auth: {
                 user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_PASS
-            }
+                pass: process.env.RESEND_API_KEY,
+            },
         });
 
         try {
             console.log("Sending email...");
-            const mailOptions = {
-                from: `"${name}" <${email}>`,
-                to: "josia.schweizer.work@gmail.com",
-                subject: subject,
+
+            const mailOptions = await transporter.sendMail({
+                from: 'onboarding@resend.dev',
+                to: 'josia.schweizer@gmail.com',
+                subject: 'Hello World',
                 html: `
                                 <h2>New Contact Form Submission</h2>
                                 <p><strong>Name:</strong> ${name}</p>
@@ -34,7 +37,7 @@ export default async function handler(req, res) {
                                 <p><strong>Message:</strong></p>
                                 <p>${message}</p>
                             `
-            };
+            });
 
             await transporter.sendMail(mailOptions);
             console.log("Email sent successfully");

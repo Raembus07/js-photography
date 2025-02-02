@@ -1,29 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useRouter} from 'next/router';
 import {FormattedMessage} from 'react-intl';
 import {useForm} from 'react-hook-form';
 import styles from '@/styles/contact.module.css';
 
-//todo: make link from price page work
+import topics from '../../public/contactTopics.json';
+import priceData from '../../public/priceData.json';
 
 const ContactPage = () => {
     const {register, handleSubmit, setValue, watch, reset} = useForm();
     const router = useRouter();
     const watchTopic = watch("topic");
-    const [topics, setTopics] = useState([]);
-    const [packages, setPackages] = useState([]);
 
     useEffect(() => {
-        fetch('/contactTopics.json')
-            .then((response) => response.json())
-            .then((data) => setTopics(data))
-            .catch((err) => console.error(err));
-
-        fetch('/priceData.json')
-            .then((response) => response.json())
-            .then((data) => setPackages(data))
-            .catch((err) => console.error(err));
-
         const {topic, package: packageParam, subject} = router.query;
 
         if (topic || packageParam || subject) {
@@ -35,7 +24,7 @@ const ContactPage = () => {
 
     const onSubmit = async (data) => {
         console.log("submitting form", data);
-        const response = await fetch('/api/send-email', {
+        const response = await fetch('/api/send', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data),
@@ -135,7 +124,7 @@ const ContactPage = () => {
                             <option value="" disabled>
                                 <FormattedMessage id="selectPackage" defaultMessage="Select a package"/>
                             </option>
-                            {packages.map((pkg) => (
+                            {priceData.map((pkg) => (
                                 <option key={pkg.id} value={pkg.title}>
                                     {pkg.title}
                                 </option>
