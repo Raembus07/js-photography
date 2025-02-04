@@ -10,6 +10,8 @@ export default async function handler(req, res) {
             return res.status(400).json({error: "Please fill out all required fields."});
         }
 
+        console.log('create transporter');
+
         const transporter = nodemailer.createTransport({
             host: 'smtp.resend.com',
             secure: true,
@@ -19,8 +21,6 @@ export default async function handler(req, res) {
                 pass: 're_UcMmwbnh_EmwJn3b9E5Pbe2uVgfyn4HCf',
             },
         });
-
-        console.log('transporter created: %s', transporter);
 
         const mailOptions = await transporter.sendMail({
             from: 'onboarding@resend.dev',
