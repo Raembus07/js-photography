@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
-    console.log("start send email");
+    console.log('start send email');
     if (req.method === "POST") {
         const {name, email, subject, topic, package: packageName, message} = req.body;
 
@@ -15,19 +15,16 @@ export default async function handler(req, res) {
             secure: true,
             port: 465,
             auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.RESEND_API_KEY,
+                user: 'resend',
+                pass: 're_UcMmwbnh_EmwJn3b9E5Pbe2uVgfyn4HCf',
             },
         });
 
-        try {
-            console.log("Sending email...");
-
-            const mailOptions = await transporter.sendMail({
-                from: 'onboarding@resend.dev',
-                to: 'josia.schweizer@gmail.com',
-                subject: 'Hello World',
-                html: `
+        const mailOptions = await transporter.sendMail({
+            from: 'onboarding@resend.dev',
+            to: 'josia.schweizer@gmail.com',
+            subject: 'Hello World',
+            html: `
                                 <h2>New Contact Form Submission</h2>
                                 <p><strong>Name:</strong> ${name}</p>
                                 <p><strong>Email:</strong> ${email}</p>
@@ -37,18 +34,23 @@ export default async function handler(req, res) {
                                 <p><strong>Message:</strong></p>
                                 <p>${message}</p>
                             `
-            });
+        });
 
-            await transporter.sendMail(mailOptions);
-            console.log("Email sent successfully");
-            return res.status(200).json({success: true, message: "Email sent successfully!"});
-        } catch (error) {
-            console.error("Error sending email:", error);
-            return res.status(500).json({error: "Failed to send email. Please try again later."});
-        }
+        console.log('Message sent: %s', mailOptions.messageId);
+
+        // try {
+        //     await transporter.sendMail(mailOptions);
+        //     console.log("Email sent successfully");
+        //     return res.status(200).json({success: true, message: "Email sent successfully!"});
+        // } catch (error) {
+        //     console.error("Error sending email:", error);
+        //     return res.status(500).json({error: "Failed to send email. Please try again later."});
+        // }
     } else {
         res.setHeader("Allow", ["POST"]);
         console.log(`Method ${req.method} Not Allowed`);
         return res.status(405).json({error: `Method ${req.method} Not Allowed`});
     }
 }
+
+handler().catch(console.error);

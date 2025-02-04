@@ -32,6 +32,7 @@ npm install react react-dom next
 npm install -g npm@9.8.1
 npm install react-intl
 npm install react-hook-form
+npm install nodemailer
 ```
 
 ### **3. Run the development server**
