@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {AppBar, IconButton, Menu, MenuItem, Toolbar, Typography} from '@mui/material';
+import {AppBar, IconButton, Menu, MenuItem, Toolbar} from '@mui/material';
 import styles from "@/styles/Header.module.css";
 
 const BurgerMenu = () => {

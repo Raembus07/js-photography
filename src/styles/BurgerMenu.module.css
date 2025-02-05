@@ -1,0 +1,44 @@
+.appBar {
+    padding: 10px;
+    text-align: left;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menuButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.title {
+    color: #fff;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+}
+
+.navLink {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.navLink:hover {
+    background-color: #CA9F70;
+}

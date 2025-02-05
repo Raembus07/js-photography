@@ -34,6 +34,7 @@ npm install react-intl
 npm install react-hook-form
 npm install nodemailer
 npm i @vercel/analytics
+npm install react-burger-menu
 npm install @mui/material @emotion/react @emotion/styled
 ```
 
