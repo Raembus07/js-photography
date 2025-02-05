@@ -40,7 +40,7 @@ const ContactPage = () => {
             alert('There was a problem. Please try again.');
         }
 
-        const userResponse = await fetch('/api/sendResponseToUser', {
+        const userResponse = await fetch('/api/sendResponse', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data),
