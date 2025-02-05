@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
         const autoResponseOptions = await transporter.sendMail({
             from: 'josia.schweizer@gmail.com',
-            to: email,
+            to: 'raembus@gmail.com',
             subject: 'Thank you for contacting us!',
             html: `
                 <h2>Thank you for your message, ${name}!</h2>
