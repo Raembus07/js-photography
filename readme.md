@@ -33,6 +33,7 @@ npm install -g npm@9.8.1
 npm install react-intl
 npm install react-hook-form
 npm install nodemailer
+npm i @vercel/analytics
 ```
 
 ### **3. Run the development server**
