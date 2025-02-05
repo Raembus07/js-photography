@@ -17,7 +17,6 @@
 }
 
 .card {
-    /*border: 2px solid #CA9F70;*/
     text-align: center;
     border-radius: 10px;
     padding: 15px;
@@ -35,4 +34,33 @@
     max-width: 100%;
     border-radius: 8px;
     object-fit: cover;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.2rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 8px;
+    }
 }

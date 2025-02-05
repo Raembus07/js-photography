@@ -127,3 +127,82 @@
 .link:hover {
     text-decoration: underline;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .priceItem {
+        flex: 1 1 calc(50% - 20px);
+    }
+
+    .packageTitle {
+        font-size: 22px;
+    }
+
+    .packageDesc, .price {
+        font-size: 16px;
+    }
+
+    .duration {
+        font-size: 14px;
+    }
+
+    .bigDescription {
+        font-size: 14px;
+    }
+
+    .packageButton {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .footerNote {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .priceItem {
+        flex: 1 1 100%;
+    }
+
+    .packageTitle {
+        font-size: 20px;
+    }
+
+    .packageDesc, .price {
+        font-size: 14px;
+    }
+
+    .duration {
+        font-size: 12px;
+    }
+
+    .bigDescription {
+        font-size: 12px;
+    }
+
+    .packageButton {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+
+    .footerNote {
+        font-size: 14px;
+    }
+}

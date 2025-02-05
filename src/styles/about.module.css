@@ -26,7 +26,6 @@
     font-weight: bold;
 }
 
-
 .contactLink {
     color: #CA9F70;
     font-weight: bold;
@@ -77,12 +76,12 @@
 
 .passionSection {
     border-radius: 10px;
-
     display: flex;
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
 }
+
 .passionContent {
     max-width: 100%;
     margin: 0 auto;
@@ -91,4 +90,43 @@
 .contactSection {
     text-align: center;
     border-radius: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .aboutSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutText, .aboutImage {
+        flex: 1 1 100%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutContainer {
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .aboutSection {
+        gap: 1rem;
+    }
 }

@@ -55,3 +55,24 @@ button {
 button:hover {
     background-color: #a78258;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    html, body {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    html, body {
+        font-size: 12px;
+    }
+
+    button {
+        padding: 6px 10px;
+    }
+}
