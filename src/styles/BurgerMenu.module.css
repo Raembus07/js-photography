@@ -10,15 +10,14 @@
 }
 
 .menuButton {
-    background: none;
+    background-color: #252525;
     border: none;
     cursor: pointer;
     margin-right: 10px;
 }
 
 .title {
-    color: #fff;
-    margin: 0;
+    margin-left: 1rem;
     flex-grow: 1;
 }
 
@@ -28,17 +27,18 @@
     align-items: flex-start;
     position: absolute;
     top: 50px;
-    left: 0;
+    left: 10px;
     width: 200px;
+    background-color: #3a3a3a;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navLink {
-    color: #fff;
+    color: #ffffff;
     padding: 10px;
     text-decoration: none;
     width: 100%;
-}
-
-.navLink:hover {
-    background-color: #CA9F70;
+    border-radius: 5px;
 }

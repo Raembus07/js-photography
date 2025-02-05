@@ -17,7 +17,7 @@ const BurgerMenu = () => {
     return (
         <div className={styles.appBar}>
             <div className={styles.toolbar}>
-                <button className={styles.menuButton} onClick={handleMenuToggle}>
+                <button id="menuButton" onClick={handleMenuToggle}>
                     <img src="/images/burgermenuwhite.png" alt="Menu" style={{width: 24, height: 24}}/>
                 </button>
                 <h3 className={styles.title}>
