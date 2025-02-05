@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         });
 
         const mailOptions = await transporter.sendMail({
-            from: email,
+            from: 'onboarding@resend.dev',
             to: 'josia.schweizer@gmail.com',
             subject: subject,
             html: `
@@ -39,12 +39,13 @@ export default async function handler(req, res) {
         });
 
         console.log('Message sent: %s', mailOptions.messageId);
-        return res.status(200).json({success: true, message: "Email sent successfully!"});
     } else {
         res.setHeader("Allow", ["POST"]);
         console.log(`Method ${req.method} Not Allowed`);
         return res.status(405).json({error: `Method ${req.method} Not Allowed`});
     }
+    return res.status(200).json({success: true, message: "Email sent successfully!"});
+
 }
 
 handler().catch(console.error);
