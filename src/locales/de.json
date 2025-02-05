@@ -1,22 +1,49 @@
 {
   "title": "Willkommen | Mein Portfolio",
-  "description": "Lassen Sie sich inspirieren. Willkommen in meinem Portfolio!",
+  "description": "Lass dich inspirieren. Willkommen in meinem Portfolio!",
   "welcome": "Willkommen, ich bin Josia Schweizer",
-  "subtitle": "Schöpfer von {boldText}, Fotograf & Videograf aus Leidenschaft.",
+  "subtitle": "Schöpfer von <b>einzigartigen Werken</b>, Fotograf & Videograf aus Leidenschaft.",
   "portfolio": "Portfolio",
   "image1Alt": "Bild 1",
   "image2Alt": "Bild 2",
 
-
   "priceTitle": "Preisübersicht",
-  "priceDescription": "Finden Sie unten unsere Preise für Dienstleistungen.",
-  "shootingDuration": "Dauer des Shootings: {boldText}",
-  "supplyDuration": "Lieferdauer: {boldText}",
-  "footerNote": "Kontaktieren Sie uns für individuelle Angebote!",
+  "priceDescription": "Hier findest du unsere Preise für Dienstleistungen.",
+  "shootingDuration": "Shooting-Dauer: {boldText}",
+  "supplyDuration": "Lieferzeit: ",
+  "footerNote": "Kontaktiere uns für individuelle Angebote!",
 
+  "bookPackageSubject": "Buchungspaket: ",
+  "bookPackageTopic": "Anfrage zur Paketbuchung",
+  "bookCustomPackageSubject": "Individuelles Paket buchen",
+  "bookCustomPackageTopic": "Anfrage für individuelles Paket",
+  "bookThisPackage": "Dieses Paket buchen",
 
-  "bookPackageSubject": "buche ",
-  "bookPackageTopic": "Paket buchen",
-  "bookCustomPackageSubject": "benutzerdefiniertes Paket buchen",
-  "bookCustomPackageTopic": "benutzerdefiniertes Paket"
+  "aboutTitle": "Über mich",
+  "aboutDescription": [
+    "Hallo, ich bin Josia Schweizer, ein leidenschaftlicher Fotograf und Videograf.",
+    "Ich arbeite seit über 10 Jahren in diesem Bereich."
+  ],
+  "passionTitle": "Meine Leidenschaft",
+  "passionDescription": [
+    "Fotografie und Videografie sind nicht nur mein Beruf, sondern meine Leidenschaft.",
+    "Ich liebe es, Momente festzuhalten und einzigartige Werke zu erschaffen."
+  ],
+  "contactTitle": "Kontakt",
+  "contactDescription": "Melde dich gerne bei mir für Anfragen oder Kooperationen.",
+
+  "priceItemTitle": "Paketname: {title}",
+  "priceItemDescription": "Beschreibung: {description}",
+  "priceItemPrice": "Preis: {price}",
+  "priceItemBigDescription": "Detaillierte Beschreibung: {bigDescription}",
+
+  "nameLabel": "Name:",
+  "emailLabel": "E-Mail:",
+  "subjectLabel": "Betreff:",
+  "topicLabel": "Thema:",
+  "selectTopic": "Thema auswählen",
+  "packageLabel": "Paket:",
+  "selectPackage": "Paket auswählen",
+  "messageLabel": "Nachricht:",
+  "sendMessage": "Nachricht senden"
 }
