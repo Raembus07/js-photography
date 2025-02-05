@@ -23,9 +23,9 @@ export default async function handler(req, res) {
         });
 
         const mailOptions = await transporter.sendMail({
-            from: 'onboarding@resend.dev',
+            from: email,
             to: 'josia.schweizer@gmail.com',
-            subject: 'Hello World',
+            subject: subject,
             html: `
                                 <h2>New Contact Form Submission</h2>
                                 <p><strong>Name:</strong> ${name}</p>
@@ -39,15 +39,7 @@ export default async function handler(req, res) {
         });
 
         console.log('Message sent: %s', mailOptions.messageId);
-
-        // try {
-        //     await transporter.sendMail(mailOptions);
-        //     console.log("Email sent successfully");
-        //     return res.status(200).json({success: true, message: "Email sent successfully!"});
-        // } catch (error) {
-        //     console.error("Error sending email:", error);
-        //     return res.status(500).json({error: "Failed to send email. Please try again later."});
-        // }
+        return res.status(200).json({success: true, message: "Email sent successfully!"});
     } else {
         res.setHeader("Allow", ["POST"]);
         console.log(`Method ${req.method} Not Allowed`);
