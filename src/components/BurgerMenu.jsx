@@ -1,65 +1,42 @@
 import React, {useState} from 'react';
-import {AppBar, IconButton, Menu, MenuItem, Toolbar} from '@mui/material';
-import styles from "@/styles/Header.module.css";
+import styles from '@/styles/BurgerMenu.module.css';
 
 const BurgerMenu = () => {
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState('home');
 
-    const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleMenuToggle = () => {
+        setIsOpen(!isOpen);
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
-
-    const handleHomeClick = () => {
-        console.log('Home clicked');
-        handleMenuClose();
-    };
-
-    const handleAboutClick = () => {
-        console.log('About clicked');
-        handleMenuClose();
-    };
-
-    const handlePortfolioClick = () => {
-        console.log('Portfolio clicked');
-        handleMenuClose();
-    };
-
-    const handlePriceClick = () => {
-        console.log('Price clicked');
-        handleMenuClose();
-    };
-
-    const handleContactClick = () => {
-        console.log('Contact clicked');
-        handleMenuClose();
+    const handleMenuItemClick = (page) => {
+        setCurrentPage(page);
+        setIsOpen(false);
     };
 
     return (
-        <AppBar position="static" sx={{backgroundColor: '#000'}}>
-            <Toolbar>
-                <IconButton edge="start" aria-label="menu" onClick={handleMenuOpen}>
+        <div className={styles.appBar}>
+            <div className={styles.toolbar}>
+                <button id="menuButton" onClick={handleMenuToggle}>
                     <img src="/images/burgermenuwhite.png" alt="Menu" style={{width: 24, height: 24}}/>
-                </IconButton>
-                <h3>My Portfolio</h3>
-                <Menu
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={handleMenuClose}
-                    sx={{'& .MuiPaper-root': {backgroundColor: '#444', color: '#fff'}}}
-                >
-                    <MenuItem onClick={handleHomeClick}><a href="/" className={styles.navLink}>home</a></MenuItem>
-                    <MenuItem onClick={handleAboutClick}><a href="/about" className={styles.navLink}>about me</a></MenuItem>
-                    <MenuItem onClick={handlePortfolioClick}><a href="/projects" className={styles.navLink}>recent projects</a></MenuItem>
-                    <MenuItem onClick={handlePriceClick}><a href="/price" className={styles.navLink}>price</a></MenuItem>
-                    <MenuItem onClick={handleContactClick}><a href="/contact" className={styles.navLink}>contact</a></MenuItem>
-                </Menu>
-            </Toolbar>
-        </AppBar>
+                </button>
+                <h3 className={styles.title}>
+                    {currentPage}
+                </h3>
+            </div>
+            {isOpen && (
+                <div className={styles.menu}>
+                    <a href="/" className={styles.navLink} onClick={() => handleMenuItemClick('home')}>home</a>
+                    <a href="/about" className={styles.navLink} onClick={() => handleMenuItemClick('about me')}>about
+                        me</a>
+                    <a href="/projects" className={styles.navLink}
+                       onClick={() => handleMenuItemClick('recent projects')}>recent projects</a>
+                    <a href="/price" className={styles.navLink} onClick={() => handleMenuItemClick('price')}>price</a>
+                    <a href="/contact" className={styles.navLink}
+                       onClick={() => handleMenuItemClick('contact')}>contact</a>
+                </div>
+            )}
+        </div>
     );
 };
 

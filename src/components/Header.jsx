@@ -1,7 +1,7 @@
 import React from 'react';
 import {useMediaQuery} from '@mui/material';
 import styles from '@/styles/Header.module.css';
-import AnotherBurgerMenu from "@/components/AnotherBurgerMenu";
+import BurgerMenu from "@/components/BurgerMenu";
 
 export default function Header() {
     const isMobile = useMediaQuery('(max-width:600px)');
@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             {isMobile ? (
-                <AnotherBurgerMenu/>
+                <BurgerMenu/>
             ) : (
                 <nav className={styles.navbar}>
                     <a href="/" className={styles.navLink}>home</a>
