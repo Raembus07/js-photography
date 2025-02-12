@@ -8,7 +8,10 @@
     "date": "26.12.2024 - 01.01.2025",
     "category": "event photography",
     "mainImage": "/images/projects-photo1-1-main.jpg",
-    "gallery": ["/images/projects-photo1-2.jpg", "/images/projects-photo1-3.jpg"]
+    "gallery": [
+      "/images/projects-photo1-2.jpg",
+      "/images/projects-photo1-3.jpg"
+    ]
   },
   {
     "id": 2,
@@ -19,6 +22,23 @@
     "date": "04.01.2025",
     "category": "interior photography",
     "mainImage": "/images/projects-photo2-1-main.jpg",
-    "gallery": ["/images/projects-photo2-2.jpg", "/images/projects-photo2-3.jpg"]
+    "gallery": [
+      "/images/projects-photo2-2.jpg",
+      "/images/projects-photo2-3.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "engagement at sedel, herisau – capturing pure love in nature's beauty",
+    "shortDescription": "capturing the beautiful engagement moment at sedel, herisau, with a stunning view and heartfelt emotions.",
+    "longDescription": "i had the honor of photographing a beautiful engagement at sedel, herisau, surrounded by breathtaking views and genuine emotions. the location, perched high above the town, provided the perfect backdrop for this special moment. my goal was to capture the love, joy, and excitement between the couple in the most authentic way, preserving the essence of their engagement.\n\nthis photoshoot was a wonderful experience, as it allowed me to work in a stunning natural environment while telling a love story through my lens. the connection between the couple and the scenic surroundings made it an unforgettable moment in my photography journey.",
+    "client": "private",
+    "date": "05.02.2025",
+    "category": "engagement photography",
+    "mainImage": "/images/projects-photo3-1-main.jpg",
+    "gallery": [
+      "/images/projects-photo3-2.jpg",
+      "/images/projects-photo3-3.jpg"
+    ]
   }
 ]
