@@ -45,5 +45,7 @@
   "packageLabel": "Paket:",
   "selectPackage": "Paket auswählen",
   "messageLabel": "Nachricht:",
-  "sendMessage": "Nachricht senden"
+  "sendMessage": "Nachricht senden",
+
+  "footerText": "Folge mir auf "
 }

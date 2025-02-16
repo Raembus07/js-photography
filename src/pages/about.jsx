@@ -1,32 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {FormattedMessage} from "react-intl";
 import styles from "@/styles/about.module.css";
 import Link from "next/link";
+import LogoLink from "@/components/LogoLink";
 
 const AboutPage = () => {
-    const [data, setData] = useState(null);
-
-    useEffect(() => {
-        const fetchAboutData = async () => {
-            try {
-                const response = await fetch("/about.json");
-                if (!response.ok) {
-                    throw new Error(`HTTP status ${response.status}`);
-                }
-                const result = await response.json();
-                setData(result);
-            } catch (error) {
-                console.error("Error loading about data:", error);
-            }
-        };
-
-        fetchAboutData().then(r => console.log('fetching successfully'));
-    }, []);
-
-    if (!data) {
-        return <p>Loading...</p>;
-    }
-
     return (
         <main className={styles.aboutContainer}>
             <section className={styles.aboutSection}>
@@ -34,25 +12,16 @@ const AboutPage = () => {
                     <h1 className={styles.title}>
                         <FormattedMessage id="aboutTitle"/>
                     </h1>
-                    {data.about.description.map((paragraph, index) => (
-                        <p key={index} className={styles.description}>
-                            {paragraph.includes("Josia Schweizer") ? (
-                                <>
-                                    {paragraph.split("Josia Schweizer")[0]}
-                                    <Link href="/contact" className={styles.contactLink}>
-                                        Josia Schweizer
-                                    </Link>
-                                    {paragraph.split("Josia Schweizer")[1]}
-                                </>
-                            ) : (
-                                paragraph
-                            )}
-                        </p>
-                    ))}
+                    <p className={styles.description}>
+                        <FormattedMessage id="aboutDescription1"/>
+                    </p>
+                    <p className={styles.description}>
+                        <FormattedMessage id="aboutDescription2"/>
+                    </p>
                 </div>
                 <div className={styles.aboutImage}>
                     <img
-                        src={data.about.image}
+                        src="/images/aboutme-photo1.jpg"
                         alt="About Me"
                         className={styles.image}
                     />
@@ -64,11 +33,12 @@ const AboutPage = () => {
                     <h2 className={styles.title}>
                         <FormattedMessage id="passionTitle"/>
                     </h2>
-                    {data.passion.description.map((paragraph, index) => (
-                        <p key={index} className={styles.description}>
-                            {paragraph}
-                        </p>
-                    ))}
+                    <p className={styles.description}>
+                        <FormattedMessage id="passionDescription1"/>
+                    </p>
+                    <p className={styles.description}>
+                        <FormattedMessage id="passionDescription2"/>
+                    </p>
                 </div>
             </section>
 
@@ -79,6 +49,25 @@ const AboutPage = () => {
                 <p className={styles.description}>
                     <FormattedMessage id="contactDescription"/>
                 </p>
+            </section>
+
+            <section className={styles.socialMediaSection}>
+                <h2 className={styles.title}>
+                    <FormattedMessage id="socialMediaTitle"/>
+                </h2>
+                <p className={styles.description}>
+                    <FormattedMessage id="socialMediaDescription"/>
+                </p>
+                <LogoLink
+                    href="https://www.instagram.com/js_photography_ch"
+                    imgSrc="/images/instagram-logo.png"
+                    altText="Instagram"
+                />
+                <LogoLink
+                    href="https://www.linkedin.com/in/yourusername"
+                    imgSrc="/images/linkedin-logo.png"
+                    altText="LinkedIn"
+                />
             </section>
         </main>
     );

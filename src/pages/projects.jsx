@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import styles from "@/styles/project.module.css";
+import Footer from "@/components/Footer";
 
 export default function ProjectsOverview() {
     const [projects, setProjects] = useState([]);
@@ -50,6 +51,7 @@ export default function ProjectsOverview() {
                     ))}
                 </div>
             )}
+            <Footer/>
         </div>
     );
 }

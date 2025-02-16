@@ -21,11 +21,6 @@
     text-align: justify;
 }
 
-.highlight {
-    color: #0070f3;
-    font-weight: bold;
-}
-
 .contactLink {
     color: #CA9F70;
     font-weight: bold;
@@ -74,32 +69,50 @@
     border-radius: 10px;
 }
 
-.passionSection {
+.passionSection,
+.contactSection,
+.socialMediaSection {
+    text-align: center;
     border-radius: 10px;
+}
+
+.passionSection {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 100%;
     margin: 0 auto;
-    text-align: center;
 }
 
 .passionContent {
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contactSection {
-    text-align: center;
-    border-radius: 10px;
+.socialMediaList {
+    display: inline;
+    list-style-type: none;
+    text-decoration: none;
 }
 
-/* Responsive styles */
+.socialMedia a {
+    color: #CA9F70;
+    text-decoration: none;
+}
+
+.socialMedia a:hover {
+    color: #a78258;
+}
+
 @media (max-width: 768px) {
     .aboutSection {
         flex-direction: column;
         align-items: center;
     }
 
-    .aboutText, .aboutImage {
+    .aboutText,
+    .aboutImage {
         flex: 1 1 100%;
     }
 

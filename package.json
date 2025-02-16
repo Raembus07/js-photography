@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/Raembus07/js-photography#readme",
   "devDependencies": {
-    "@mui/icons-material": "^6.4.3"
+    "@mui/icons-material": "^6.4.3",
+    "prop-types": "^15.8.1"
   }
 }

@@ -15,7 +15,6 @@ const messages = {
 
 export default function App({Component, pageProps, router}) {
     const {locale} = router;
-    console.log(locale);
     //const currentMessages = messages[locale] || messages.en;
     const currentMessages = messages.en;
 
