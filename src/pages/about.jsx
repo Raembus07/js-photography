@@ -64,7 +64,7 @@ const AboutPage = () => {
                     altText="Instagram"
                 />
                 <LogoLink
-                    href="https://www.linkedin.com/in/yourusername"
+                    href="https://www.linkedin.com/in/josia-schweizer-273a21294/"
                     imgSrc="/images/linkedin-logo.png"
                     altText="LinkedIn"
                 />
