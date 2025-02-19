@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
         const mailOptions = await transporter.sendMail({
             from: 'onboarding@resend.dev',
-            to: 'josia.schweizer@gmail.com',
+            to: 'info@js-photography.ch',
             subject: subject,
             html: `
                                 <h2>New Contact Form Submission</h2>
