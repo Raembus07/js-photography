@@ -17,7 +17,7 @@
     "shootingDuration": "2 hours",
     "supplyDuration": "7 business days",
     "bigDescription": "Recommended for intermediate users.",
-    "image": "/images/standard-package.jpg"
+    "image": "/images/standard-package.png"
   },
   {
     "id": 3,
@@ -27,6 +27,6 @@
     "shootingDuration": "1 day",
     "supplyDuration": "14 business days",
     "bigDescription": "Best for professional-level requirements.",
-    "image": "/images/premium-package.jpg"
+    "image": "/images/premium-package.png"
   }
 ]
