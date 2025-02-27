@@ -14,6 +14,21 @@
     text-align: center;
 }
 
+.contactTitle {
+    color: #CA9F70;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-decoration: underline;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contactTitle:hover {
+    color: #8e6c50;
+    transform: scale(1.1);
+}
+
 .description {
     font-size: 1rem;
     line-height: 1.8;

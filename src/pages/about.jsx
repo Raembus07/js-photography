@@ -1,7 +1,6 @@
 import React from "react";
 import {FormattedMessage} from "react-intl";
 import styles from "@/styles/about.module.css";
-import Link from "next/link";
 import LogoLink from "@/components/LogoLink";
 
 const AboutPage = () => {
@@ -43,9 +42,11 @@ const AboutPage = () => {
             </section>
 
             <section className={styles.contactSection}>
-                <h2 className={styles.title}>
-                    <FormattedMessage id="contactTitle"/>
-                </h2>
+                <a href='/contact'>
+                    <h2 className={styles.contactTitle}>
+                        <FormattedMessage id="contactTitle"/>
+                    </h2>
+                </a>
                 <p className={styles.description}>
                     <FormattedMessage id="contactDescription"/>
                 </p>
