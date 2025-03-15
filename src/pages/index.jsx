@@ -46,6 +46,13 @@ export default function Home({locale}) {
                             className={styles.photo}
                         />
                     </div>
+                    <div className={styles.gridItem}>
+                        <img
+                            src="/images/index-photo3.jpg"
+                            alt={intl.formatMessage({id: 'image3Alt'})}
+                            className={styles.photo}
+                        />
+                    </div>
                 </div>
             </section>
         </RawIntlProvider>
