@@ -46,5 +46,16 @@
       "messageLabel": "Message:",
       "sendMessage": "Send Message",
 
-      "footerText": "Follow me on social media to stay updated on my latest works and projects."
-    }
+      "footerText": "Follow me on social media to stay updated on my latest works and projects.",
+
+      "unpublishedProjectsTitle": "Video Projects",
+      "videoProject1Title": "Project Name 1",
+      "videoProject1Description": "Description for the first video project showcasing...",
+      "videoProject1VideoUrl": "asdf",
+      "videoProject2Title": "Project Name 2",
+      "videoProject2Description": "Description for the second video project featuring...",
+      "videoProject2VideoUrl": "asdf",
+      "videoProject3Title": "Project Name 3",
+      "videoProject3Description": "Description for the third video project highlighting...",
+      "videoProject3VideoUrl": "asdf"
+}

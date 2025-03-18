@@ -48,5 +48,16 @@
   "messageLabel": "Nachricht:",
   "sendMessage": "Nachricht senden",
 
-  "footerText": "Folge mir auf "
+  "footerText": "Folge mir auf ",
+
+  "unpublishedProjectsTitle": "Videoprojekte",
+  "videoProject1Title": "Projektname 1",
+  "videoProject1Description": "Beschreibung des ersten Videoprojekts, das zeigt...",
+  "videoProject1VideoUrl": "asdf",
+  "videoProject2Title": "Projektname 2",
+  "videoProject2Description": "Beschreibung des zweiten Videoprojekts mit...",
+  "videoProject2VideoUrl": "asdf",
+  "videoProject3Title": "Projektname 3",
+  "videoProject3Description": "Beschreibung des dritten Videoprojekts, das hervorhebt...",
+  "videoProject3VideoUrl": "asdf"
 }
