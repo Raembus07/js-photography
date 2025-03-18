@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Credo - Faith in Action",
+    "description": "A short documentary showcasing how faith inspires action in everyday life.",
+    "videoUrl": "https://player.vimeo.com/video/805156814"
+  },
+  {
+    "id": 2,
+    "title": "Casa Vos - Interior Design Journey",
+    "description": "Exploring the transformation of spaces through thoughtful design and creativity.",
+    "videoUrl": "https://player.vimeo.com/video/805156772"
+  },
+  {
+    "id": 3,
+    "title": "Tanz am Gleis - Urban Performance",
+    "description": "Capturing the rhythm and emotion of contemporary dance in an urban setting.",
+    "videoUrl": "https://player.vimeo.com/video/805156790"
+  },
+  {
+    "id": 4,
+    "title": "IMD Day - Corporate Event Highlights",
+    "description": "A visual summary of key moments from this year's innovative corporate gathering.",
+    "videoUrl": "https://player.vimeo.com/video/805156748"
+  }
+] 

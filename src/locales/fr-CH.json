@@ -13,16 +13,5 @@
   "priceDescription": "Trouvez nos tarifs pour les services ci-dessous.",
   "shootingDuration": "Durée du shooting: {boldText}",
   "supplyDuration": "Durée de livraison: {boldText}",
-  "footerNote": "Contactez-nous pour des offres personnalisées!",
-
-  "unpublishedProjectsTitle": "Projets vidéo",
-  "videoProject1Title": "Nom du projet 1",
-  "videoProject1Description": "Description du premier projet vidéo présentant...",
-  "videoProject1VideoUrl": "asdf",
-  "videoProject2Title": "Nom du projet 2",
-  "videoProject2Description": "Description du deuxième projet vidéo mettant en vedette...",
-  "videoProject2VideoUrl": "asdf",
-  "videoProject3Title": "Nom du projet 3",
-  "videoProject3Description": "Description du troisième projet vidéo soulignant...",
-  "videoProject3VideoUrl": "asdf"
+  "footerNote": "Contactez-nous pour des offres personnalisées!"
 }
