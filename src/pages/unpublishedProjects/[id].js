@@ -14,7 +14,6 @@ export default function UnpublishedProjectDetail() {
             try {
                 const response = await fetch("/unpublishedProjects.json");
                 if (!response.ok) {
-                    console.log("HTTP status", response.status);
                     throw new Error(`HTTP status ${response.status}`);
                 }
                 const projects = await response.json();
