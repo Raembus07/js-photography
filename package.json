@@ -4,7 +4,8 @@
   "description": "This is a Next.js-based web application that displays a list of projects dynamically loaded from a `JSON` file. Each project has an overview and a detail page. The styling is managed with modular CSS files.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build --output public"
   },
   "keywords": [],
   "author": "",
