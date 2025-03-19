@@ -19,7 +19,7 @@
     "date": "15.03.2024",
     "category": "videography",
     "thumbnail": "/video/imdday.png",
-    "mainImage": "/video/imdday.mp4"
+    "mainImage": "https://youtube.com/embed/Wz_RMCQmzhs"
   },
   {
     "id": 3,
@@ -30,12 +30,12 @@
     "date": "15.09.2024",
     "category": "video editing",
     "thumbnail": "/video/tanzamgleis.png",
-    "mainImage": "/video/tanzamgleis.mp4"
+    "mainImage": "https://www.youtube.com/embed/hmD2-9XuL-8"
   },
   {
     "id": 4,
     "title": "casa Vos x GameChangers",
-    "shortDescription": "A challenge event pushing limits with ice baths, shard walking, and firewalking.",
+    "shortDescription": "A challenge event pushing limits with ice baths, shard walking, and firewalking",
     "longDescription": "Casa Vos x Gamechanger was an intense experience organized by a Dutch food retailer in Spain, designed to push participants beyond their comfort zones. The video showcases powerful moments of ice bathing, walking on glass shards, and firewalking, capturing the journey of overcoming fears and strengthening team spirit.",
     "client": "Casa Vos",
     "date": "13.11.2024",

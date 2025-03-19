@@ -20,6 +20,37 @@ export default function UnpublishedProjectDetail() {
                 const selectedProject = projects.find(
                     (project) => String(project.id) === id
                 );
+
+                // Convert YouTube URLs to embed format
+                if (selectedProject && selectedProject.mainImage) {
+                    // Handle YouTube Shorts
+                    if (selectedProject.mainImage.includes('youtube.com/shorts/')) {
+                        const videoId = selectedProject.mainImage.split('youtube.com/shorts/')[1].split('?')[0];
+                        selectedProject.mainImage = `https://www.youtube.com/embed/${videoId}`;
+                    }
+                    // Convert youtu.be links
+                    else if (selectedProject.mainImage.includes('youtu.be/')) {
+                        const videoId = selectedProject.mainImage.split('youtu.be/')[1].split('?')[0];
+                        selectedProject.mainImage = `https://www.youtube.com/embed/${videoId}`;
+                    }
+                    // Convert youtube.com/watch links
+                    else if (selectedProject.mainImage.includes('youtube.com/watch')) {
+                        const url = new URL(selectedProject.mainImage);
+                        const videoId = url.searchParams.get('v');
+                        if (videoId) {
+                            selectedProject.mainImage = `https://www.youtube.com/embed/${videoId}`;
+                        }
+                    }
+                    // Fix existing embed links if needed
+                    else if (selectedProject.mainImage.includes('youtube.com/embed') ||
+                        selectedProject.mainImage.includes('shorts/embed')) {
+                        // Ensure proper protocol
+                        if (!selectedProject.mainImage.startsWith('https://')) {
+                            selectedProject.mainImage = `https://${selectedProject.mainImage.split('://')[1] || selectedProject.mainImage}`;
+                        }
+                    }
+                }
+
                 setProject(selectedProject);
             } catch (error) {
                 console.error("Error while loading the project data:", error);
@@ -39,12 +70,28 @@ export default function UnpublishedProjectDetail() {
                 <h1 className={styles.title}>{project.title}</h1>
 
                 <div className={styles.coverVideoContainer}>
-                    <video
-                        src={project.mainImage}
-                        alt={project.title}
-                        className={styles.coverVideo}
-                        controls
-                    />
+                    {project.mainImage.includes('youtube.com/embed') ? (
+                        <iframe
+                            className={styles.coverVideo}
+                            src={project.mainImage.includes('youtube.com') ?
+                                project.mainImage.replace('https://www.youtube.com', 'https://www.youtube-nocookie.com') :
+                                project.mainImage}
+                            title={project.title}
+                            frameBorder="0"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                    ) : (
+                        <video
+                            className={styles.coverVideo}
+                            controls
+                            preload="metadata"
+                        >
+                            <source src={project.mainImage} type="video/mp4"/>
+                            Your browser does not support the video tag.
+                        </video>
+                    )}
                 </div>
 
                 {project.longDescription && (
