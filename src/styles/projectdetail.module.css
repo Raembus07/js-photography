@@ -71,6 +71,32 @@
     font-size: 1rem;
 }
 
+.coverVideoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.coverVideo {
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.galleryVideo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.galleryVideo:hover {
+    transform: scale(1.05);
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .container {
