@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "title": "test project",
-    "shortDescription": "test projects",
-    "longDescription": "test projects",
-    "client": "test project",
-    "date": "01.01.2025",
+    "title": "Credo Camp 2024",
+    "shortDescription": "A cinematic portrait of the Credo Football Camp",
+    "longDescription": "Credo offers an in-depth look at the football camp that combines a passion for sports with Christian values. The video captures inspiring moments, team spirit, and the unique atmosphere that makes the camp an unforgettable experience for young footballers. The entire film was shot and edited within just four days during the camp, making it a true creative challenge.",
+    "client": "credo camp",
+    "date": "20.07.2024 - 27.07.2024",
     "category": "videography",
     "thumbnail": "/video/credo.png",
     "mainImage": "/video/credo.mp4"
@@ -13,10 +13,10 @@
   {
     "id": 2,
     "title": "gbs imd days",
-    "shortDescription": "test projects",
-    "longDescription": "test projects",
-    "client": "test project",
-    "date": "01.01.2025",
+    "shortDescription": "Insights into IMD Day – a day full of innovation",
+    "longDescription": "IMD Day (Interactive Media Designer Day) brings together creative minds and technological innovations. This video highlights the most exciting moments, showcases inspiring projects, and conveys the energetic atmosphere of this special event.",
+    "client": "GBS St. Gallen",
+    "date": "15.03.2024",
     "category": "videography",
     "thumbnail": "/video/imdday.png",
     "mainImage": "/video/imdday.mp4"
@@ -24,12 +24,23 @@
   {
     "id": 3,
     "title": "tanz am gleis",
-    "shortDescription": "test projects",
-    "longDescription": "test projects",
-    "client": "test project",
-    "date": "01.01.2025",
-    "category": "videography",
+    "shortDescription": "A vibrant party at an urban railway location",
+    "longDescription": "Tanz am Gleis was an electrifying event set in an industrial railway setting. With music, lights, and an energetic crowd, the party created a unique atmosphere, blending urban aesthetics with a festival-like experience.",
+    "client": "Tanz am Gleis",
+    "date": "15.09.2024",
+    "category": "video editing",
     "thumbnail": "/video/tanzamgleis.png",
     "mainImage": "/video/tanzamgleis.mp4"
+  },
+  {
+    "id": 4,
+    "title": "casa Vos x GameChangers",
+    "shortDescription": "A challenge event pushing limits with ice baths, shard walking, and firewalking.",
+    "longDescription": "Casa Vos x Gamechanger was an intense experience organized by a Dutch food retailer in Spain, designed to push participants beyond their comfort zones. The video showcases powerful moments of ice bathing, walking on glass shards, and firewalking, capturing the journey of overcoming fears and strengthening team spirit.",
+    "client": "Casa Vos",
+    "date": "13.11.2024",
+    "category": "video editing",
+    "thumbnail": "/video/casavos.png",
+    "mainImage": "/video/casavos.mp4"
   }
 ]
