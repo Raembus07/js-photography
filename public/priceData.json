@@ -6,7 +6,7 @@
     "price": "CHF 99",
     "shootingDuration": "1 hour",
     "supplyDuration": "5 business days",
-    "bigDescription": "Ideal for those starting out.",
+    "bigDescription": "Ideal for people just starting out.",
     "image": "/images/basic-package.png"
   },
   {
@@ -15,8 +15,8 @@
     "description": "Great value for most people.",
     "price": "CHF 199",
     "shootingDuration": "2 hours",
-    "supplyDuration": "7 business days",
-    "bigDescription": "Recommended for intermediate users.",
+    "supplyDuration": "up to 7 business days",
+    "bigDescription": "Great choice for intermediate users.",
     "image": "/images/standard-package.png"
   },
   {
@@ -25,7 +25,7 @@
     "description": "For high-demand professionals.",
     "price": "CHF 399",
     "shootingDuration": "1 day",
-    "supplyDuration": "14 business days",
+    "supplyDuration": "up to 14 business days",
     "bigDescription": "Best for professional-level requirements.",
     "image": "/images/premium-package.png"
   }

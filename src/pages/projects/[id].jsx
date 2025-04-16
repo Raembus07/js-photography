@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 import styles from "@/styles/projectdetail.module.css";
+import {motion} from "framer-motion";
+import Footer from "@/components/Footer";
 
 export default function ProjectDetail() {
     const [project, setProject] = useState(null);
     const router = useRouter();
-    const { id } = router.query;
+    const {id} = router.query;
 
     useEffect(() => {
         const fetchProject = async () => {
@@ -30,61 +32,127 @@ export default function ProjectDetail() {
     }, [id]);
 
     if (!project) {
-        return <p>Loading project data...</p>;
+        return (
+            <motion.div
+                className={styles.container}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.6}}
+            >
+                <motion.p
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    transition={{duration: 0.3}}
+                >
+                    Loading project data...
+                </motion.p>
+            </motion.div>
+        );
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <h1 className={styles.title}>{project.title}</h1>
+        <motion.div
+            className={styles.container}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.6}}
+        >
+            <motion.div className={styles.content}>
+                <motion.h1
+                    className={styles.title}
+                    initial={{opacity: 0, y: -20}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{duration: 0.5}}
+                >
+                    {project.title}
+                </motion.h1>
 
-                <div className={styles.coverImageContainer}>
+                <motion.div
+                    className={styles.coverImageContainer}
+                    initial={{opacity: 0, scale: 0.95}}
+                    animate={{opacity: 1, scale: 1}}
+                    transition={{delay: 0.2, duration: 0.5}}
+                >
                     <img
                         src={project.mainImage}
                         alt={project.title}
                         className={styles.coverImage}
                     />
-                </div>
+                </motion.div>
 
                 {project.longDescription && (
-                    <p className={styles.description}>{project.longDescription}</p>
+                    <motion.p
+                        className={styles.description}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{delay: 0.4, duration: 0.5}}
+                    >
+                        {project.longDescription}
+                    </motion.p>
                 )}
 
                 {project.gallery?.length > 0 && (
-                    <div className={styles.gallery}>
+                    <motion.div
+                        className={styles.gallery}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{delay: 0.5, duration: 0.5}}
+                    >
                         {project.gallery.map((image, index) => (
-                            <img
+                            <motion.img
                                 key={index}
                                 src={image}
                                 alt={`Project Image ${index + 1}`}
                                 className={styles.galleryImage}
+                                initial={{opacity: 0, y: 20}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{delay: 0.6 + (index * 0.1), duration: 0.4}}
+                                whileHover={{scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.15)"}}
                             />
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
                 {(project.client || project.date || project.category) && (
-                    <div className={styles.projectDetails}>
+                    <motion.div
+                        className={styles.projectDetails}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{delay: 0.7, duration: 0.5}}
+                    >
                         <ul>
                             {project.client && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    transition={{delay: 0.8, duration: 0.3}}
+                                >
                                     <strong>Client:</strong> {project.client}
-                                </li>
+                                </motion.li>
                             )}
                             {project.date && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    transition={{delay: 0.9, duration: 0.3}}
+                                >
                                     <strong>Date:</strong> {project.date}
-                                </li>
+                                </motion.li>
                             )}
                             {project.category && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    transition={{delay: 1.0, duration: 0.3}}
+                                >
                                     <strong>Category:</strong> {project.category}
-                                </li>
+                                </motion.li>
                             )}
                         </ul>
-                    </div>
+                    </motion.div>
                 )}
-            </div>
-        </div>
+            </motion.div>
+            <Footer/>
+        </motion.div>
     );
 }

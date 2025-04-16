@@ -21,6 +21,7 @@ html, body {
 }
 
 body {
+    overflow-x: hidden;
     background: radial-gradient(circle at center, #1a1a1a, #121212 70%),
     url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     background-size: cover;
@@ -28,6 +29,17 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
+}
+
+.page {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.headerWrapper {
+    width: 100%;
+    position: relative;
+    overflow: visible;
 }
 
 a {

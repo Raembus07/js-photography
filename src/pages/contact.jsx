@@ -3,6 +3,8 @@ import {useRouter} from 'next/router';
 import {FormattedMessage} from 'react-intl';
 import {useForm} from 'react-hook-form';
 import styles from '@/styles/contact.module.css';
+import {motion} from 'framer-motion';
+import Footer from "@/components/Footer";
 
 import topics from '../../public/contactTopics.json';
 import priceData from '../../public/priceData.json';
@@ -42,61 +44,72 @@ const ContactPage = () => {
     };
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.heading}>
+        <motion.div
+            className={styles.container}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.6}}
+        >
+            <motion.h1
+                className={styles.heading}
+                initial={{opacity: 0, y: -20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
+            >
                 <FormattedMessage id="contactTitle" defaultMessage="Contact Me"/>
-            </h1>
-            <form onSubmit={handleSubmit(onSubmit)} className={styles.contactForm}>
-                <div className={styles.formGroup}>
-                    <label htmlFor="name" className={styles.label}>
-                        <FormattedMessage id="nameLabel" defaultMessage="Name:"/>
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className={styles.input}
-                        placeholder="Your name"
-                        {...register("name", {required: true})}
-                    />
-                </div>
+            </motion.h1>
+            <motion.form
+                onSubmit={handleSubmit(onSubmit)}
+                className={styles.contactForm}
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.2, duration: 0.5}}
+            >
+                <FormField
+                    index={0}
+                    label={<FormattedMessage id="nameLabel" defaultMessage="Name:"/>}
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    register={register}
+                />
 
-                <div className={styles.formGroup}>
-                    <label htmlFor="email" className={styles.label}>
-                        <FormattedMessage id="emailLabel" defaultMessage="Email:"/>
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className={styles.input}
-                        placeholder="Your email address"
-                        {...register("email", {required: true})}
-                    />
-                </div>
+                <FormField
+                    index={1}
+                    label={<FormattedMessage id="emailLabel" defaultMessage="Email:"/>}
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your email address"
+                    register={register}
+                />
 
-                <div className={styles.formGroup}>
-                    <label htmlFor="subject" className={styles.label}>
-                        <FormattedMessage id="subjectLabel" defaultMessage="Subject:"/>
-                    </label>
-                    <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        className={styles.input}
-                        placeholder="Subject of your message"
-                        {...register("subject", {required: true})}
-                    />
-                </div>
+                <FormField
+                    index={2}
+                    label={<FormattedMessage id="subjectLabel" defaultMessage="Subject:"/>}
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject of your message"
+                    register={register}
+                />
 
-                <div className={styles.formGroup}>
+                <motion.div
+                    className={styles.formGroup}
+                    initial={{opacity: 0, y: 20}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{delay: 0.3 + 3 * 0.1, duration: 0.5}}
+                >
                     <label htmlFor="topic" className={styles.label}>
                         <FormattedMessage id="topicLabel" defaultMessage="Topic:"/>
                     </label>
-                    <select
+                    <motion.select
                         id="topic"
                         name="topic"
                         className={styles.select}
+                        whileTap={{scale: 0.98}}
+                        whileFocus={{scale: 1.02}}
                         {...register("topic", {required: true})}
                     >
                         <option value="" disabled>
@@ -107,18 +120,26 @@ const ContactPage = () => {
                                 {topic.title}
                             </option>
                         ))}
-                    </select>
-                </div>
+                    </motion.select>
+                </motion.div>
 
                 {watchTopic === "book package" && (
-                    <div className={styles.formGroup}>
+                    <motion.div
+                        className={styles.formGroup}
+                        initial={{opacity: 0, height: 0}}
+                        animate={{opacity: 1, height: "auto"}}
+                        exit={{opacity: 0, height: 0}}
+                        transition={{duration: 0.4}}
+                    >
                         <label htmlFor="package" className={styles.label}>
                             <FormattedMessage id="packageLabel" defaultMessage="Package:"/>
                         </label>
-                        <select
+                        <motion.select
                             id="package"
                             name="package"
                             className={styles.select}
+                            whileTap={{scale: 0.98}}
+                            whileFocus={{scale: 1.02}}
                             {...register("package", {required: true})}
                         >
                             <option value="" disabled>
@@ -129,28 +150,68 @@ const ContactPage = () => {
                                     {pkg.title}
                                 </option>
                             ))}
-                        </select>
-                    </div>
+                        </motion.select>
+                    </motion.div>
                 )}
 
-                <div className={styles.formGroup}>
+                <motion.div
+                    className={styles.formGroup}
+                    initial={{opacity: 0, y: 20}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{delay: 0.3 + 4 * 0.1, duration: 0.5}}
+                >
                     <label htmlFor="message" className={styles.label}>
                         <FormattedMessage id="messageLabel" defaultMessage="Message:"/>
                     </label>
-                    <textarea
+                    <motion.textarea
                         id="message"
                         name="message"
                         className={styles.textarea}
                         placeholder="Your message..."
+                        whileFocus={{scale: 1.01, boxShadow: "0 0 8px rgba(0,0,0,0.1)"}}
                         {...register("message", {required: true})}
-                    ></textarea>
-                </div>
+                    ></motion.textarea>
+                </motion.div>
 
-                <button type="submit" className={styles.submitButton}>
+                <motion.button
+                    type="submit"
+                    className={styles.submitButton}
+                    initial={{opacity: 0, y: 20}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{delay: 0.8, duration: 0.5}}
+                    whileHover={{scale: 1.05, backgroundColor: "#333"}}
+                    whileTap={{scale: 0.95}}
+                >
                     <FormattedMessage id="sendMessage" defaultMessage="Send Message"/>
-                </button>
-            </form>
-        </div>
+                </motion.button>
+            </motion.form>
+            <Footer/>
+        </motion.div>
+    );
+};
+
+// Reusable form field component with animations
+const FormField = ({index, label, type, id, name, placeholder, register}) => {
+    return (
+        <motion.div
+            className={styles.formGroup}
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{delay: 0.3 + index * 0.1, duration: 0.5}}
+        >
+            <label htmlFor={id} className={styles.label}>
+                {label}
+            </label>
+            <motion.input
+                type={type}
+                id={id}
+                name={name}
+                className={styles.input}
+                placeholder={placeholder}
+                whileFocus={{scale: 1.02, boxShadow: "0 0 8px rgba(0,0,0,0.1)"}}
+                {...register(name, {required: true})}
+            />
+        </motion.div>
     );
 };
 
