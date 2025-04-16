@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import styles from "@/styles/projectdetail.module.css";
+import {motion} from "framer-motion";
 
 export default function UnpublishedProjectDetail() {
     const [project, setProject] = useState(null);
@@ -61,15 +62,51 @@ export default function UnpublishedProjectDetail() {
     }, [id]);
 
     if (!project) {
-        return <p>Loading project data...</p>;
+        return (
+            <motion.div
+                className={styles.loadingContainer}
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                transition={{duration: 0.3}}
+            >
+                <p>Loading project data...</p>
+            </motion.div>
+        );
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <h1 className={styles.title}>{project.title}</h1>
+        <motion.div
+            className={styles.container}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.6}}
+        >
+            <motion.div
+                className={styles.content}
+                initial={{y: 20}}
+                animate={{y: 0}}
+                transition={{duration: 0.5, delay: 0.2}}
+            >
+                <motion.h1
+                    className={styles.title}
+                    initial={{opacity: 0, y: -10}}
+                    animate={{opacity: 1, y: 0}}
+                    transition={{duration: 0.6, delay: 0.3}}
+                >
+                    {project.title}
+                </motion.h1>
 
-                <div className={styles.coverVideoContainer}>
+                <motion.div
+                    className={styles.coverVideoContainer}
+                    initial={{opacity: 0, scale: 0.95}}
+                    animate={{opacity: 1, scale: 1}}
+                    transition={{
+                        duration: 0.7,
+                        delay: 0.4,
+                        type: "spring",
+                        stiffness: 100
+                    }}
+                >
                     {project.mainImage.includes('youtube.com/embed') ? (
                         <iframe
                             className={styles.coverVideo}
@@ -92,48 +129,85 @@ export default function UnpublishedProjectDetail() {
                             Your browser does not support the video tag.
                         </video>
                     )}
-                </div>
+                </motion.div>
 
                 {project.longDescription && (
-                    <p className={styles.description}>{project.longDescription}</p>
+                    <motion.p
+                        className={styles.description}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5, delay: 0.6}}
+                    >
+                        {project.longDescription}
+                    </motion.p>
                 )}
 
                 {project.gallery?.length > 0 && (
-                    <div className={styles.gallery}>
+                    <motion.div
+                        className={styles.gallery}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{duration: 0.7, delay: 0.7}}
+                    >
                         {project.gallery.map((video, index) => (
-                            <video
+                            <motion.div
                                 key={index}
-                                src={video}
-                                alt={`Project Video ${index + 1}`}
-                                className={styles.galleryVideo}
-                                controls
-                            />
+                                initial={{opacity: 0, y: 30}}
+                                animate={{opacity: 1, y: 0}}
+                                transition={{duration: 0.5, delay: 0.8 + index * 0.1}}
+                                whileHover={{scale: 1.02}}
+                                whileTap={{scale: 0.98}}
+                            >
+                                <video
+                                    src={video}
+                                    alt={`Project Video ${index + 1}`}
+                                    className={styles.galleryVideo}
+                                    controls
+                                />
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
 
                 {(project.client || project.date || project.category) && (
-                    <div className={styles.projectDetails}>
+                    <motion.div
+                        className={styles.projectDetails}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        transition={{duration: 0.5, delay: 0.9}}
+                    >
                         <ul>
                             {project.client && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={{opacity: 1, x: 0}}
+                                    transition={{duration: 0.4, delay: 1.0}}
+                                >
                                     <strong>Client:</strong> {project.client}
-                                </li>
+                                </motion.li>
                             )}
                             {project.date && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={{opacity: 1, x: 0}}
+                                    transition={{duration: 0.4, delay: 1.1}}
+                                >
                                     <strong>Date:</strong> {project.date}
-                                </li>
+                                </motion.li>
                             )}
                             {project.category && (
-                                <li>
+                                <motion.li
+                                    initial={{opacity: 0, x: -10}}
+                                    animate={{opacity: 1, x: 0}}
+                                    transition={{duration: 0.4, delay: 1.2}}
+                                >
                                     <strong>Category:</strong> {project.category}
-                                </li>
+                                </motion.li>
                             )}
                         </ul>
-                    </div>
+                    </motion.div>
                 )}
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }
