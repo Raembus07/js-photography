@@ -40,6 +40,7 @@
     "esutils": "^1.0.0",
     "eve": "^0.5.4",
     "find-root": "^1.1.0",
+    "framer-motion": "^12.7.3",
     "function-bind": "^1.1.2",
     "globals": "^11.12.0",
     "hasown": "^2.0.2",
