@@ -18,7 +18,8 @@ export default function ProjectsOverview() {
                     throw new Error(`HTTP status ${response.status}`);
                 }
                 const data = await response.json();
-                setProjects(data);
+                const sortedData = [...data].sort((a, b) => b.id - a.id);
+                setProjects(sortedData);
             } catch (error) {
                 console.error("Error loading project data:", error);
             }
